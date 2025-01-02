@@ -42,6 +42,7 @@ This project is a quickstart template for building a real-time chat application 
 - Enhanced design and UI/UX.
 - User authentication and management.
 - Chat history with database integration.
+- Production mode.
 
 ## Contributing
 

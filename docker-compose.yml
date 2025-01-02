@@ -1,0 +1,26 @@
+services:
+  app:
+    build:
+      context: server/app
+      dockerfile: Dockerfile
+    volumes:
+      - ./server/app:/app
+    ports:
+      - "3000:3000"
+  spa:
+    build:
+      context: client/spa
+      dockerfile: Dockerfile
+    depends_on:
+      - app
+    volumes:
+      - ./client/spa:/app
+  server:
+    image: "nginx:latest"
+    depends_on:
+      - spa
+      - app
+    ports:
+      - "80:80"
+    volumes:
+      - ./server/nginx/nginx.conf:/etc/nginx/nginx.conf
